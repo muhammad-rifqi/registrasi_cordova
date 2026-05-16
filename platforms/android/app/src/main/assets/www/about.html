@@ -234,19 +234,23 @@
             About
         </a>
     </div>
-    <!-- Cordova -->
+    <div id="deviceready" class="blink">
+    </div>
     <script src="cordova.js"></script>
     <script src="js/index.js"></script>
     <script>
         window.addEventListener("load", (event) => {
-            setActive('home');
+            setActive('about');
         })
 
         function setActive(menuId) {
             document.querySelectorAll('.bottom-nav a').forEach(item => {
                 item.classList.remove('active');
             });
-            document.getElementById(menuId).classList.add('active');
+            const menu = document.getElementById(menuId);
+            if (menu) {
+                menu.classList.add('active');
+            }
         }
     </script>
 
