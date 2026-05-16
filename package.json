@@ -16,6 +16,7 @@
     "cordova-android": "^15.0.0",
     "cordova-browser": "^7.0.0",
     "cordova-plugin-device": "^3.0.0",
+    "cordova-plugin-splashscreen": "^6.0.1",
     "cordova-plugin-statusbar": "^4.0.0"
   },
   "cordova": {
@@ -25,7 +26,8 @@
     ],
     "plugins": {
       "cordova-plugin-device": {},
-      "cordova-plugin-statusbar": {}
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-splashscreen": {}
     }
   }
 }
