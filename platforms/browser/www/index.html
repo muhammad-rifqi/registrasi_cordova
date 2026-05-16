@@ -1,72 +1,58 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu MCU</title>
-
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-  <style>
-    body{
-      background: linear-gradient(135deg, #eef2f3, #dfe9f3);
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    .menu-card{
-      border-radius: 20px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    }
-
-    .menu-btn{
-      height: 150px;
-      border-radius: 20px;
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    .menu-btn i{
-      font-size: 40px;
-      display: block;
-      margin-bottom: 10px;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <!-- viewport mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- cordova -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <title>Registrasi MCU</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/new.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-
-<div class="container py-5">
-
-  <div class="card menu-card p-5">
-    <h2 class="text-center mb-4">
-      Registrasi MCU
-    </h2>
-
-    <div class="row g-4">
-
-      <!-- Identitas -->
-      <div class="col-md-6">
-        <a href="identitas.html" class="btn btn-primary w-100 menu-btn">
-          <i class="bi bi-person-vcard"></i>
-          Peserta Baru
-        </a>
-      </div>
-
-      <!-- Mandiri -->
-      <div class="col-md-6">
-        <a href="history.html" class="btn btn-success w-100 menu-btn">
-          <i class="bi bi-clipboard2-pulse"></i>
-          Riwayat Penyakit
-        </a>
-      </div>
-
+    <!-- HEADER -->
+    <div class="mobile-header">
+        <h2>Registrasi MCU</h2>
+        <p>Silakan pilih menu registrasi</p>
     </div>
-  </div>
+    <!-- CONTENT -->
+    <div class="content">
+        <!-- Peserta Baru -->
+        <a href="identitas.html" class="menu-btn btn-primary-custom">
+            <i class="bi bi-person-vcard"></i>
+            <div class="menu-text">
+                <h5>Peserta Baru</h5>
+                <p>Input data identitas peserta</p>
+            </div>
+        </a>
+        <!-- Riwayat Penyakit -->
+        <a href="history.html" class="menu-btn btn-success-custom">
+            <i class="bi bi-clipboard2-pulse"></i>
+            <div class="menu-text">
+                <h5>Riwayat Penyakit</h5>
+                <p>Lihat dan isi riwayat kesehatan</p>
+            </div>
+        </a>
+    </div>
 
-</div>
-
+    <!-- BOTTOM NAVIGATION -->
+    <div class="bottom-nav">
+        <a href="#" class="active">
+            <i class="bi bi-house-fill"></i>
+            Home
+        </a>
+        <a href="#">
+            <i class="bi bi-person-circle"></i>
+            Profile
+        </a>
+    </div>
+    <!-- Cordova -->
+    <script src="cordova.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
