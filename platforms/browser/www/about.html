@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>About Klinik Dr Sander B</title>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="css/new.css" rel="stylesheet" type="text/css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f4f6f9;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0d6efd, #0a58ca);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+
+        .header img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: white;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 18px;
+            margin-bottom: 18px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h2 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #0d6efd;
+        }
+
+        .card p {
+            line-height: 1.7;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .info-item i {
+            font-size: 20px;
+            color: #0d6efd;
+            margin-right: 12px;
+        }
+
+        .info-item div {
+            font-size: 14px;
+        }
+
+        .social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #0d6efd;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .social a:hover {
+            background: #084298;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 70px;
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 22px;
+            }
+
+            .card h2 {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <img src="https://cdn-icons-png.flaticon.com/512/2966/2966486.png" alt="Logo Klinik">
+
+        <h1>Klinik Dr Sander B</h1>
+        <p>Layanan kesehatan terpercaya untuk keluarga Anda</p>
+    </div>
+
+    <!-- Content -->
+    <div class="container">
+
+        <!-- Tentang -->
+        <div class="card">
+            <h2><i class="bi bi-info-circle-fill"></i> Tentang Klinik</h2>
+
+            <p>
+                Klinik Dr Sander B merupakan layanan kesehatan modern yang
+                menyediakan pemeriksaan umum, konsultasi dokter,
+                pelayanan kesehatan keluarga, dan tindakan medis ringan.
+                Kami berkomitmen memberikan pelayanan terbaik dengan
+                cepat, aman, dan profesional.
+            </p>
+        </div>
+
+        <!-- Informasi -->
+        <div class="card">
+            <h2><i class="bi bi-hospital-fill"></i> Informasi Klinik</h2>
+
+            <div class="info-item">
+                <i class="bi bi-geo-alt-fill"></i>
+                <div>
+                    Jl. Kesehatan No. 10<br>
+                    Tangerang, Indonesia
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="bi bi-telephone-fill"></i>
+                <div>
+                    +62 812-3456-7890
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="bi bi-envelope-fill"></i>
+                <div>
+                    klinikdrsanderb@gmail.com
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="bi bi-clock-fill"></i>
+                <div>
+                    Senin - Sabtu<br>
+                    08:00 - 20:00
+                </div>
+            </div>
+        </div>
+
+        <!-- Sosial Media -->
+        <div class="card">
+            <h2><i class="bi bi-share-fill"></i> Sosial Media</h2>
+
+            <div class="social">
+                <a href="#">
+                    <i class="bi bi-facebook"></i>
+                </a>
+
+                <a href="#">
+                    <i class="bi bi-instagram"></i>
+                </a>
+
+                <a href="#">
+                    <i class="bi bi-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        © 2026 Klinik Dr Sander B <br>
+        Mobile App Cordova Version 1.0
+    </div>
+
+    <!-- BOTTOM NAVIGATION -->
+    <div class="bottom-nav">
+        <a href="index.html" id="home" onclick="setActive('home')">
+            <i class="bi bi-house-fill"></i>
+            Home
+        </a>
+        <a href="about.html" id="about" onclick="setActive('about')">
+            <i class="bi bi-person-circle"></i>
+            About
+        </a>
+    </div>
+    <!-- Cordova -->
+    <script src="cordova.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+        window.addEventListener("load", (event) => {
+            setActive('home');
+        })
+
+        function setActive(menuId) {
+            document.querySelectorAll('.bottom-nav a').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.getElementById(menuId).classList.add('active');
+        }
+    </script>
+
+</body>
+
+</html>
