@@ -26,4 +26,21 @@ function onDeviceReady() {
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
+    document.addEventListener('backbutton', onBackButton, false);
+}
+
+function onBackButton(e) {
+    e.preventDefault();
+    navigator.notification.confirm(
+        'Apakah Anda ingin keluar aplikasi?',
+        onConfirmExit,
+        'Konfirmasi',
+        ['Ya', 'Tidak']
+    );
+}
+
+function onConfirmExit(buttonIndex) {
+    if (buttonIndex === 1) {
+        navigator.app.exitApp();
+    }
 }
