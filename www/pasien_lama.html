@@ -64,7 +64,8 @@
                                     <i class="bi bi-person"></i>
                                 </span>
 
-                                <input type="text" class="form-control" id="nikInput" placeholder="Masukkan NIK" required>
+                                <input type="text" class="form-control" id="nikInput" placeholder="Masukkan NIK"
+                                    required>
                             </div>
                         </div>
 
@@ -100,50 +101,64 @@
     <a href="index.html" class="floating-back">
         <i class="bi bi-house-door-fill"></i>
     </a>
-
     <script>
-        const form = document.getElementById('nikForm');
-        const nikInput = document.getElementById('nikInput');
-        const loading = document.getElementById('loading');
-        const result = document.getElementById('result');
+        document.addEventListener("deviceready", function () {
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault(); // cegah reload halaman
+            const form = document.getElementById('nikForm');
+            const nikInput = document.getElementById('nikInput');
+            const loading = document.getElementById('loading');
+            const result = document.getElementById('result');
 
-            const nik = nikInput.value.trim();
-            if (!nik) {
-                alert('Silahkan masukkan NIK!');
-                return;
-            }
+            form.addEventListener('submit', function (e) {
+                e.preventDefault(); // cegah reload halaman
 
-            // 3603302905040001
+                const nik = nikInput.value.trim();
+                if (!nik) {
+                    // Alert Cordova untuk NIK kosong
+                    navigator.notification.alert(
+                        'Silahkan masukkan NIK!',
+                        function () { console.log('Alert ditutup'); },
+                        'Peringatan',
+                        'OK'
+                    );
+                    return;
+                }
 
-            loading.style.display = 'block';
-            result.innerHTML = '';
-            const apiUrl = `https://dev.klinikdrsanderb-emcu.com/api/v1/search_nik/${nik}`;
+                loading.style.display = 'block';
+                result.innerHTML = '';
+                const apiUrl = `https://dev.klinikdrsanderb-emcu.com/api/v1/search_nik/${nik}`;
 
-            fetch(apiUrl)
-                .then(response => {
-                    if (!response.ok) throw new Error('Data tidak ditemukan');
-                    return response.json();
-                })
-                .then(data => {
-                    loading.style.display = 'none';
-                    result.innerHTML = `
+                fetch(apiUrl)
+                    .then(response => {
+                        if (!response.ok) throw new Error('Data tidak ditemukan');
+                        return response.json();
+                    })
+                    .then(data => {
+                        loading.style.display = 'none';
+                        result.innerHTML = `
                         <div class="card p-3 border">
                             <strong>NIK :</strong> ${data?.payload?.nik || '-'}<br>
                             <strong>Nama:</strong> ${data?.payload?.fullname || '-'}<br>
                             <strong>Tanggal Lahir:</strong> ${data?.payload?.birth || '-'}<br>
                             <strong>No HP:</strong> ${data?.payload?.mobile_phone || '-'}
-                        div>
+                        </div>
                     `;
-                })
-                .catch(err => {
-                    loading.style.display = 'none';
-                    result.innerHTML = `<div class="text-danger">Error: ${err.message}</div>`;
-                });
-        });
+                    })
+                    .catch(err => {
+                        loading.style.display = 'none';
+                        // Alert Cordova untuk error API
+                        navigator.notification.alert(
+                            'Gagal mengambil data: ' + err.message,
+                            function () { console.log('Alert ditutup'); },
+                            'Error API',
+                            'OK'
+                        );
+                    });
+            });
+
+        }, false);
     </script>
 
 </body>
+
 </html>
