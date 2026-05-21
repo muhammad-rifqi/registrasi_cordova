@@ -1,8 +1,8 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "RegistrasiMCU",
-  "short_name": "RegistrasiMCU",
+  "name": "RegEmcu",
+  "short_name": "RegEmcu",
   "version": "com.klinikdrsander.registrasi",
   "description": "Sample Apache Cordova App",
   "author": "Apache Cordova Team",
