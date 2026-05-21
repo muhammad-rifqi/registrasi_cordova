@@ -24,151 +24,210 @@
     }
 
     body {
-      background: #f4f7fb;
+      background: #eef3f9;
       font-family: 'Segoe UI', sans-serif;
       color: #1d1d1d;
-      padding-bottom: 100px;
+      min-height: 100vh;
     }
 
-    /* ===== MOBILE HEADER ===== */
+    /* =========================
+       WRAPPER
+    ========================== */
+    .phone-wrapper {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
     .mobile-header {
       position: sticky;
       top: 0;
       z-index: 999;
-      background: #0d6efd;
+      background: linear-gradient(135deg, #0d6efd, #2563eb);
       color: white;
-      padding: 15px;
-      border-radius: 0 0 20px 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      padding: 18px 24px;
+      border-radius: 0 0 24px 24px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     }
 
     .header-content {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 16px;
     }
 
     .btn-back {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
       border: none;
       background: rgba(255, 255, 255, 0.2);
       color: white;
       font-size: 20px;
+      transition: 0.3s;
+    }
+
+    .btn-back:hover {
+      background: rgba(255, 255, 255, 0.3);
     }
 
     .title-area h5 {
       margin: 0;
-      font-size: 18px;
+      font-size: 24px;
       font-weight: 700;
     }
 
     .title-area small {
       opacity: 0.9;
-      font-size: 12px;
+      font-size: 13px;
     }
 
-    /* ===== CONTENT ===== */
+    /* =========================
+       CONTENT
+    ========================== */
     .content-area {
-      padding: 18px;
+      flex: 1;
+      padding: 30px 20px;
     }
 
     .card-mobile {
       background: white;
-      border-radius: 24px;
-      padding: 20px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+      border-radius: 28px;
+      padding: 35px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     }
 
     .section-title {
-      font-size: 18px;
+      font-size: 28px;
       font-weight: 700;
       margin-bottom: 5px;
     }
 
     .section-subtitle {
       color: #6c757d;
-      font-size: 13px;
-      margin-bottom: 20px;
+      font-size: 14px;
+      margin-bottom: 30px;
     }
 
-    /* ===== FORM ===== */
+    /* =========================
+       FORM GRID
+    ========================== */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .form-item.full {
+      grid-column: 1 / -1;
+    }
+
+    @media (min-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* =========================
+       FORM
+    ========================== */
     .form-label {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
       margin-bottom: 8px;
-      color: #555;
+      color: #444;
     }
 
     .input-group {
-      margin-bottom: 18px;
+      margin-bottom: 0;
     }
 
     .input-group-text {
       background: #f7f9fc;
-      border-radius: 14px 0 0 14px;
+      border-radius: 16px 0 0 16px;
       border: 1px solid #dee2e6;
       color: #0d6efd;
-      min-width: 50px;
+      min-width: 55px;
       justify-content: center;
     }
 
     .form-control,
     .form-select,
     textarea {
-      border-radius: 0 14px 14px 0 !important;
-      min-height: 50px;
+      border-radius: 0 16px 16px 0 !important;
+      min-height: 55px;
       border: 1px solid #dee2e6;
       font-size: 14px;
+      padding: 12px;
     }
 
     textarea.form-control {
-      min-height: 100px;
-      resize: none;
+      min-height: 120px;
+      resize: vertical;
     }
 
     .form-control:focus,
     .form-select:focus {
-      box-shadow: none;
+      box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.1);
       border-color: #0d6efd;
     }
 
-    /* ===== BUTTON ===== */
+    /* =========================
+       BUTTON
+    ========================== */
     .btn-area {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 25px;
+      display: flex;
+      gap: 15px;
+      margin-top: 35px;
+      flex-wrap: wrap;
+    }
+
+    .btn-submit,
+    .btn-cancel {
+      flex: 1;
+      min-width: 180px;
+      height: 55px;
+      border-radius: 16px;
+      border: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: 0.3s;
     }
 
     .btn-submit {
       background: #0d6efd;
-      border: none;
-      height: 50px;
-      border-radius: 14px;
       color: white;
-      font-weight: 600;
-      font-size: 15px;
+    }
+
+    .btn-submit:hover {
+      background: #0b5ed7;
+      transform: translateY(-2px);
     }
 
     .btn-cancel {
       background: #e9ecef;
-      border: none;
-      height: 50px;
-      border-radius: 14px;
       color: #333;
-      font-weight: 600;
-      font-size: 15px;
     }
 
-    /* ===== FLOATING BACK BUTTON ===== */
+    .btn-cancel:hover {
+      background: #dfe3e7;
+    }
+
+    /* =========================
+       FLOATING BUTTON
+    ========================== */
     .floating-back {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
+      bottom: 25px;
+      right: 25px;
+      width: 62px;
+      height: 62px;
       border-radius: 50%;
       background: #0d6efd;
       color: white;
@@ -177,25 +236,55 @@
       justify-content: center;
       text-decoration: none;
       font-size: 24px;
-      box-shadow: 0 6px 15px rgba(13, 110, 253, 0.4);
+      box-shadow: 0 8px 20px rgba(13, 110, 253, 0.35);
       z-index: 999;
+      transition: 0.3s;
     }
 
-    /* ===== FOOTER ===== */
+    .floating-back:hover {
+      transform: scale(1.08);
+      background: #0b5ed7;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
     .footer {
       text-align: center;
-      font-size: 11px;
+      font-size: 12px;
       color: #888;
-      margin-top: 25px;
-      padding: 0 15px;
+      margin-top: 30px;
+      padding: 15px;
     }
 
-    /* ===== MOBILE APP EFFECT ===== */
-    .phone-wrapper {
-      max-width: 480px;
-      margin: auto;
-      min-height: 100vh;
-      background: #f4f7fb;
+    /* =========================
+       MOBILE
+    ========================== */
+    @media (max-width: 576px) {
+
+      .mobile-header {
+        padding: 15px;
+        border-radius: 0 0 20px 20px;
+      }
+
+      .card-mobile {
+        padding: 22px;
+        border-radius: 22px;
+      }
+
+      .section-title {
+        font-size: 22px;
+      }
+
+      .btn-area {
+        flex-direction: column;
+      }
+
+      .floating-back {
+        width: 55px;
+        height: 55px;
+        font-size: 20px;
+      }
     }
   </style>
 </head>
@@ -206,6 +295,7 @@
 
     <!-- HEADER -->
     <div class="mobile-header">
+
       <div class="header-content">
 
         <button class="btn-back"
@@ -219,6 +309,7 @@
         </div>
 
       </div>
+
     </div>
 
     <!-- CONTENT -->
@@ -236,110 +327,146 @@
 
         <form action="qrcode.html" method="get">
 
-          <!-- Nama Depan -->
-          <label class="form-label">Nama Depan</label>
-          <div class="input-group">
-            <span class="input-group-text">
-              <i class="bi bi-person"></i>
-            </span>
-            <input type="text"
-              class="form-control"
-              placeholder="Masukkan nama depan">
-          </div>
+          <div class="form-grid">
 
-          <!-- Nama Belakang -->
-          <label class="form-label">Nama Belakang</label>
-          <div class="input-group">
-            <span class="input-group-text">
-              <i class="bi bi-person"></i>
-            </span>
-            <input type="text"
-              class="form-control"
-              placeholder="Masukkan nama belakang">
-          </div>
+            <!-- Nama Depan -->
+            <div class="form-item">
+              <label class="form-label">Nama Depan</label>
 
-          <!-- Jenis Kelamin -->
-          <label class="form-label">Jenis Kelamin</label>
-          <div class="input-group">
-            <span class="input-group-text">
-              <i class="bi bi-gender-ambiguous"></i>
-            </span>
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-person"></i>
+                </span>
 
-            <select class="form-select">
-              <option selected disabled>Pilih jenis kelamin</option>
-              <option>Laki-laki</option>
-              <option>Perempuan</option>
-            </select>
-          </div>
+                <input type="text"
+                  class="form-control"
+                  placeholder="Masukkan nama depan">
+              </div>
+            </div>
 
-          <!-- NIK -->
-          <label class="form-label">NIK KTP</label>
-          <div class="input-group">
-            <span class="input-group-text">
-              <i class="bi bi-credit-card"></i>
-            </span>
+            <!-- Nama Belakang -->
+            <div class="form-item">
+              <label class="form-label">Nama Belakang</label>
 
-            <input type="text"
-              class="form-control"
-              placeholder="Masukkan NIK">
-          </div>
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-person"></i>
+                </span>
 
-          <!-- Tanggal Lahir -->
-          <label class="form-label">Tanggal Lahir</label>
-          <div class="input-group">
-            <span class="input-group-text">
-              <i class="bi bi-calendar"></i>
-            </span>
+                <input type="text"
+                  class="form-control"
+                  placeholder="Masukkan nama belakang">
+              </div>
+            </div>
 
-            <input type="date"
-              class="form-control">
-          </div>
+            <!-- Jenis Kelamin -->
+            <div class="form-item">
+              <label class="form-label">Jenis Kelamin</label>
 
-          <!-- Email -->
-          <label class="form-label">Email</label>
-          <div class="input-group">
-            <span class="input-group-text">
-              <i class="bi bi-envelope"></i>
-            </span>
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-gender-ambiguous"></i>
+                </span>
 
-            <input type="email"
-              class="form-control"
-              placeholder="Masukkan email">
-          </div>
+                <select class="form-select">
+                  <option selected disabled>
+                    Pilih jenis kelamin
+                  </option>
 
-          <!-- Departemen -->
-          <label class="form-label">Departemen</label>
-          <div class="input-group">
-            <span class="input-group-text">
-              <i class="bi bi-diagram-3"></i>
-            </span>
+                  <option>Laki-laki</option>
+                  <option>Perempuan</option>
+                </select>
+              </div>
+            </div>
 
-            <input type="text"
-              class="form-control"
-              placeholder="Masukkan departemen">
-          </div>
+            <!-- NIK -->
+            <div class="form-item">
+              <label class="form-label">NIK KTP</label>
 
-          <!-- Telephone -->
-          <label class="form-label">No Telephone</label>
-          <div class="input-group">
-            <span class="input-group-text">
-              <i class="bi bi-phone"></i>
-            </span>
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-credit-card"></i>
+                </span>
 
-            <input type="text"
-              class="form-control"
-              placeholder="Masukkan nomor telephone">
-          </div>
+                <input type="text"
+                  class="form-control"
+                  placeholder="Masukkan NIK">
+              </div>
+            </div>
 
-          <!-- Alamat -->
-          <label class="form-label">Alamat</label>
-          <div class="input-group">
-            <span class="input-group-text">
-              <i class="bi bi-card-text"></i>
-            </span>
+            <!-- Tanggal Lahir -->
+            <div class="form-item">
+              <label class="form-label">Tanggal Lahir</label>
 
-            <textarea class="form-control"
-              placeholder="Masukkan alamat lengkap"></textarea>
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-calendar"></i>
+                </span>
+
+                <input type="date"
+                  class="form-control">
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="form-item">
+              <label class="form-label">Email</label>
+
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-envelope"></i>
+                </span>
+
+                <input type="email"
+                  class="form-control"
+                  placeholder="Masukkan email">
+              </div>
+            </div>
+
+            <!-- Departemen -->
+            <div class="form-item">
+              <label class="form-label">Departemen</label>
+
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-diagram-3"></i>
+                </span>
+
+                <input type="text"
+                  class="form-control"
+                  placeholder="Masukkan departemen">
+              </div>
+            </div>
+
+            <!-- Telephone -->
+            <div class="form-item">
+              <label class="form-label">No Telephone</label>
+
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-phone"></i>
+                </span>
+
+                <input type="text"
+                  class="form-control"
+                  placeholder="Masukkan nomor telephone">
+              </div>
+            </div>
+
+            <!-- Alamat -->
+            <div class="form-item full">
+              <label class="form-label">Alamat</label>
+
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-card-text"></i>
+                </span>
+
+                <textarea class="form-control"
+                  placeholder="Masukkan alamat lengkap"></textarea>
+              </div>
+            </div>
+
           </div>
 
           <!-- BUTTON -->
@@ -372,7 +499,7 @@
 
   </div>
 
-  <!-- FLOATING STICKY BUTTON -->
+  <!-- FLOATING BUTTON -->
   <a href="index.html" class="floating-back">
     <i class="bi bi-house-door-fill"></i>
   </a>

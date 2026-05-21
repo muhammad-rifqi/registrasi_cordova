@@ -24,97 +24,146 @@
     }
 
     body {
-      background: #f4f7fb;
+      background: #eef3f9;
       font-family: 'Segoe UI', sans-serif;
       color: #1d1d1d;
-      padding-bottom: 100px;
+      min-height: 100vh;
     }
 
+    /* =========================
+       WRAPPER
+    ========================== */
     .phone-wrapper {
-      max-width: 480px;
+      width: 100%;
+      max-width: 1200px;
       margin: auto;
       min-height: 100vh;
-      background: #f4f7fb;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* ===== HEADER ===== */
+    /* =========================
+       HEADER
+    ========================== */
     .mobile-header {
       position: sticky;
       top: 0;
       z-index: 999;
-      background: #0d6efd;
+      background: linear-gradient(135deg, #0d6efd, #2563eb);
       color: white;
-      padding: 15px;
+      padding: 18px 24px;
       border-radius: 0 0 24px 24px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     }
 
     .header-content {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
     }
 
     .btn-back {
-      width: 42px;
-      height: 42px;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
       border: none;
-      border-radius: 12px;
       background: rgba(255, 255, 255, 0.2);
       color: white;
       font-size: 20px;
+      transition: 0.3s;
+    }
+
+    .btn-back:hover {
+      background: rgba(255, 255, 255, 0.3);
     }
 
     .header-title h5 {
       margin: 0;
-      font-size: 18px;
+      font-size: 24px;
       font-weight: 700;
     }
 
     .header-title small {
-      font-size: 12px;
-      opacity: 0.9;
-    }
-
-    /* ===== CONTENT ===== */
-    .content-area {
-      padding: 18px;
-    }
-
-    .summary-card {
-      background: linear-gradient(135deg, #0d6efd, #4c8dff);
-      border-radius: 22px;
-      padding: 20px;
-      color: white;
-      margin-bottom: 20px;
-      box-shadow: 0 6px 18px rgba(13, 110, 253, 0.25);
-    }
-
-    .summary-card h4 {
-      margin: 0;
-      font-weight: 700;
-      font-size: 28px;
-    }
-
-    .summary-card small {
       opacity: 0.9;
       font-size: 13px;
     }
 
-    /* ===== HISTORY CARD ===== */
+    /* =========================
+       CONTENT
+    ========================== */
+    .content-area {
+      flex: 1;
+      padding: 30px 20px;
+    }
+
+    /* =========================
+       SUMMARY CARD
+    ========================== */
+    .summary-card {
+      background: linear-gradient(135deg, #0d6efd, #4c8dff);
+      border-radius: 28px;
+      padding: 30px;
+      color: white;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 25px rgba(13, 110, 253, 0.25);
+    }
+
+    .summary-card small {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .summary-card h4 {
+      font-size: 42px;
+      margin: 10px 0;
+      font-weight: 700;
+    }
+
+    /* =========================
+       HISTORY GRID
+    ========================== */
+    .history-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .history-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .history-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    /* =========================
+       HISTORY CARD
+    ========================== */
     .history-card {
       background: white;
-      border-radius: 22px;
-      padding: 18px;
-      margin-bottom: 18px;
-      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      transition: 0.3s;
+      border: 1px solid #edf1f7;
+    }
+
+    .history-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
     }
 
     .history-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 14px;
+      margin-bottom: 18px;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     .history-date {
@@ -123,17 +172,29 @@
     }
 
     .history-type {
-      font-size: 17px;
+      font-size: 20px;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      color: #1f2937;
     }
 
     .doctor-name {
       color: #555;
       font-size: 14px;
-      margin-bottom: 12px;
+      margin-bottom: 18px;
     }
 
+    .history-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* =========================
+       BADGE
+    ========================== */
     .badge-status {
       padding: 8px 14px;
       border-radius: 12px;
@@ -151,13 +212,33 @@
       color: #b8860b;
     }
 
-    /* ===== STICKY FLOAT BUTTON ===== */
+    /* =========================
+       BUTTON DETAIL
+    ========================== */
+    .btn-detail {
+      border: none;
+      background: #0d6efd;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-detail:hover {
+      background: #0b5ed7;
+    }
+
+    /* =========================
+       FLOATING BUTTON
+    ========================== */
     .floating-home {
       position: fixed;
-      right: 20px;
-      bottom: 20px;
-      width: 60px;
-      height: 60px;
+      right: 25px;
+      bottom: 25px;
+      width: 62px;
+      height: 62px;
       border-radius: 50%;
       background: #0d6efd;
       color: white;
@@ -166,17 +247,60 @@
       justify-content: center;
       text-decoration: none;
       font-size: 24px;
-      box-shadow: 0 8px 18px rgba(13, 110, 253, 0.4);
+      box-shadow: 0 8px 20px rgba(13, 110, 253, 0.35);
       z-index: 999;
+      transition: 0.3s;
     }
 
-    /* ===== FOOTER ===== */
+    .floating-home:hover {
+      transform: scale(1.08);
+      background: #0b5ed7;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
     .footer {
       text-align: center;
       color: #888;
-      font-size: 11px;
-      margin-top: 30px;
-      padding: 0 15px;
+      font-size: 12px;
+      margin-top: 35px;
+      padding: 15px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+    @media (max-width: 576px) {
+
+      .mobile-header {
+        padding: 15px;
+        border-radius: 0 0 20px 20px;
+      }
+
+      .summary-card {
+        padding: 22px;
+        border-radius: 22px;
+      }
+
+      .summary-card h4 {
+        font-size: 34px;
+      }
+
+      .history-card {
+        padding: 18px;
+        border-radius: 20px;
+      }
+
+      .history-type {
+        font-size: 18px;
+      }
+
+      .floating-home {
+        width: 55px;
+        height: 55px;
+        font-size: 20px;
+      }
     }
   </style>
 </head>
@@ -222,56 +346,127 @@
 
       </div>
 
-      <!-- CARD 1 -->
-      <div class="history-card">
+      <!-- HISTORY GRID -->
+      <div class="history-grid">
 
-        <div class="history-top">
+        <!-- CARD 1 -->
+        <div class="history-card">
 
-          <div class="history-date">
-            <i class="bi bi-calendar-event"></i>
-            10-05-2026
+          <div class="history-top">
+
+            <div class="history-date">
+              <i class="bi bi-calendar-event"></i>
+              10-05-2026
+            </div>
+
+            <span class="badge-status badge-success-custom">
+              Selesai
+            </span>
+
           </div>
 
-          <span class="badge-status badge-success-custom">
-            Selesai
-          </span>
-
-        </div>
-
-        <div class="history-type">
-          MCU Tahunan
-        </div>
-
-        <div class="doctor-name">
-          <i class="bi bi-person-badge"></i>
-          dr. Sander
-        </div>
-
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="history-card">
-
-        <div class="history-top">
-
-          <div class="history-date">
-            <i class="bi bi-calendar-event"></i>
-            02-01-2026
+          <div class="history-type">
+            MCU Tahunan
           </div>
 
-          <span class="badge-status badge-warning-custom">
-            Pending
-          </span>
+          <div class="doctor-name">
+            <i class="bi bi-person-badge"></i>
+            dr. Sander
+          </div>
+
+          <div class="history-footer">
+
+            <small class="text-muted">
+              Pemeriksaan rutin tahunan
+            </small>
+
+            <button class="btn-detail">
+              <i class="bi bi-eye"></i>
+              Detail
+            </button>
+
+          </div>
 
         </div>
 
-        <div class="history-type">
-          Checkup Jantung
+        <!-- CARD 2 -->
+        <div class="history-card">
+
+          <div class="history-top">
+
+            <div class="history-date">
+              <i class="bi bi-calendar-event"></i>
+              02-01-2026
+            </div>
+
+            <span class="badge-status badge-warning-custom">
+              Pending
+            </span>
+
+          </div>
+
+          <div class="history-type">
+            Checkup Jantung
+          </div>
+
+          <div class="doctor-name">
+            <i class="bi bi-person-badge"></i>
+            dr. Budi
+          </div>
+
+          <div class="history-footer">
+
+            <small class="text-muted">
+              Menunggu hasil laboratorium
+            </small>
+
+            <button class="btn-detail">
+              <i class="bi bi-eye"></i>
+              Detail
+            </button>
+
+          </div>
+
         </div>
 
-        <div class="doctor-name">
-          <i class="bi bi-person-badge"></i>
-          dr. Budi
+        <!-- CARD 3 -->
+        <div class="history-card">
+
+          <div class="history-top">
+
+            <div class="history-date">
+              <i class="bi bi-calendar-event"></i>
+              15-12-2025
+            </div>
+
+            <span class="badge-status badge-success-custom">
+              Selesai
+            </span>
+
+          </div>
+
+          <div class="history-type">
+            MCU Karyawan
+          </div>
+
+          <div class="doctor-name">
+            <i class="bi bi-person-badge"></i>
+            dr. Andi
+          </div>
+
+          <div class="history-footer">
+
+            <small class="text-muted">
+              Pemeriksaan kesehatan kerja
+            </small>
+
+            <button class="btn-detail">
+              <i class="bi bi-eye"></i>
+              Detail
+            </button>
+
+          </div>
+
         </div>
 
       </div>
