@@ -51,41 +51,44 @@
                     Silahkan isi data pribadi dengan lengkap
                 </div>
 
-                <form action="qrcode.html" method="get">
+                <form id="nikForm">
 
                     <div class="form-grid">
 
                         <!-- Nama Depan -->
                         <div class="form-item full">
-                            <label class="form-label"> Nik </label>
+                            <label class="form-label"> NIK </label>
 
                             <div class="input-group">
                                 <span class="input-group-text">
                                     <i class="bi bi-person"></i>
                                 </span>
 
-                                <input type="text" class="form-control" placeholder="Masukkan NIK">
+                                <input type="text" class="form-control" id="nikInput" placeholder="Masukkan NIK" required>
                             </div>
                         </div>
 
                     </div>
 
                     <!-- BUTTON -->
-                    <div class="btn-area">
+                    <div class="btn-area mt-3">
 
-                        <button type="submit" class="btn-submit">
-                            <i class="bi bi-check-circle"></i>
-                            Cari..
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="bi bi-check-circle"></i> Cari..
                         </button>
 
                     </div>
+
+                    <!-- Loading & Result -->
+                    <div id="loading" style="display:none; margin-top: 15px;">Loading...</div>
+                    <div id="result" style="margin-top: 15px;"></div>
 
                 </form>
 
             </div>
 
             <!-- FOOTER -->
-            <div class="footer">
+            <div class="footer mt-3">
                 © 2026 Klinik dr Sander B - PT Daya Adicipta Medika
             </div>
 
@@ -98,6 +101,47 @@
         <i class="bi bi-house-door-fill"></i>
     </a>
 
-</body>
+    <script>
+        const form = document.getElementById('nikForm');
+        const nikInput = document.getElementById('nikInput');
+        const loading = document.getElementById('loading');
+        const result = document.getElementById('result');
 
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // cegah reload halaman
+
+            const nik = nikInput.value.trim();
+            if (!nik) {
+                alert('Silahkan masukkan NIK!');
+                return;
+            }
+
+            loading.style.display = 'block';
+            result.innerHTML = '';
+            const apiUrl = `https://dev.klinikdrsanderb-emcu.com/api/v1/search_nik/${nik}`;
+
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) throw new Error('Data tidak ditemukan');
+                    return response.json();
+                })
+                .then(data => {
+                    loading.style.display = 'none';
+                    result.innerHTML = `
+                        <div class="card p-3 border">
+                            <strong>NIK :</strong> ${data?.payload?.nik || '-'}<br>
+                            <strong>Nama:</strong> ${data?.payload?.fullname || '-'}<br>
+                            <strong>Tanggal Lahir:</strong> ${data?.payload?.birth || '-'}<br>
+                            <strong>No HP:</strong> ${data?.payload?.mobile_phone || '-'}
+                        div>
+                    `;
+                })
+                .catch(err => {
+                    loading.style.display = 'none';
+                    result.innerHTML = `<div class="text-danger">Error: ${err.message}</div>`;
+                });
+        });
+    </script>
+
+</body>
 </html>
