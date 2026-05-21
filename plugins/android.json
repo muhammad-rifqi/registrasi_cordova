@@ -15,6 +15,9 @@
     },
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "com.klinikdrsander.registrasi"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.klinikdrsander.registrasi"
     }
   },
   "dependent_plugins": {}
