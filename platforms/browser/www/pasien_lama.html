@@ -55,7 +55,6 @@
 
                     <div class="form-grid">
 
-                        <!-- Nama Depan -->
                         <div class="form-item full">
                             <label class="form-label"> NIK </label>
 
@@ -64,8 +63,7 @@
                                     <i class="bi bi-person"></i>
                                 </span>
 
-                                <input type="text" class="form-control" id="nikInput" placeholder="Masukkan NIK"
-                                    required>
+                                <input type="text" class="form-control" id="nikInput" placeholder="Masukkan NIK">
                             </div>
                         </div>
 
@@ -104,7 +102,7 @@
     <script src="cordova.js"></script>
     <script>
         document.addEventListener("deviceready", function () {
-
+// 3603302905040001
             const form = document.getElementById('nikForm');
             const nikInput = document.getElementById('nikInput');
             const loading = document.getElementById('loading');
@@ -115,7 +113,6 @@
 
                 const nik = nikInput.value.trim();
                 if (!nik) {
-                    // Alert Cordova untuk NIK kosong
                     navigator.notification.alert(
                         'Silahkan masukkan NIK!',
                         function () { console.log('Alert ditutup'); },
@@ -137,11 +134,43 @@
                     .then(data => {
                         loading.style.display = 'none';
                         result.innerHTML = `
-                        <div class="card p-3 border">
-                            <strong>NIK :</strong> ${data?.payload?.nik || '-'}<br>
-                            <strong>Nama:</strong> ${data?.payload?.fullname || '-'}<br>
-                            <strong>Tanggal Lahir:</strong> ${data?.payload?.birth || '-'}<br>
-                            <strong>No HP:</strong> ${data?.payload?.mobile_phone || '-'}
+                        <div class="form-grid">   
+                            <div class="form-item full">
+                                <label class="form-label"> NIK </label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-person"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="nikInsert" value="${data?.payload?.nik || '-'}">
+                                </div>
+                            </div>
+                            <div class="form-item full">
+                                <label class="form-label"> Nama Lengkap </label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-card-list"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="fullnameInsert" value="${data?.payload?.fullname || '-'}">
+                                </div>
+                            </div>
+                            <div class="form-item full">
+                                <label class="form-label"> Tanggal Lahir </label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-calendar"></i>
+                                    </span>
+                                    <input type="date" class="form-control" id="fullnameInsert" value="${data?.payload?.birth || '-'}">
+                                </div>
+                            </div>
+                            <div class="form-item full">
+                                <label class="form-label"> No Telphon </label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-person"></i>
+                                    </span>
+                                    <input type="date" class="form-control" id="fullnameInsert" value="${data?.payload?.mobile_phone || '-'}">
+                                </div>
+                            </div>
                         </div>
                     `;
                     })
